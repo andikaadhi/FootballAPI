@@ -11,7 +11,7 @@ const FootballAPI = (path) => {
         })
         .then((res) => resolve(res.data))
         .catch((error) => {
-          reject(new Error(error));
+          reject(new Error(error.response.data.message));
         });
     } catch (err) {
       reject(err);
