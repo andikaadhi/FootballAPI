@@ -24,7 +24,7 @@ Berada pada /documentation
 
 
 ## Cara menjalankan
-+ install dependancies menggunakan perintah 'yarn'
-+ jalankan aplikasi dengan 'yarn start'
++ install dependancies menggunakan perintah 'yarn' atau 'npm install'
++ jalankan aplikasi dengan perintah 'yarn start' atau 'npm start'
 + akses API pada port 8000
 + jika ingin mengganti port, silahkan mengganti di .env
