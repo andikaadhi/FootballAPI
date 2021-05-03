@@ -1,0 +1,899 @@
+FORMAT: 1A
+
+# Football Data API 
+
+## Competitions [/competitions{?country}]
+
+### Retrieve List of Competitions [GET]
+
++ Parameters
+
+    + country (number, optional) - the country/area of requested competitions, eg. Spain, Africa
+        + Default: undefined
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "count": 152,
+                "filters": {},
+                "competitions": [
+                    {
+                        "id": 2006,
+                        "area": {
+                            "id": 2001,
+                            "name": "Africa",
+                            "countryCode": "AFR",
+                            "ensignUrl": null
+                        },
+                        "name": "WC Qualification",
+                        "code": null,
+                        "emblemUrl": null,
+                        "plan": "TIER_FOUR",
+                        "currentSeason": {
+                            "id": 555,
+                            "startDate": "2019-09-04",
+                            "endDate": "2021-11-16",
+                            "currentMatchday": 1,
+                            "winner": null
+                        },
+                        "numberOfAvailableSeasons": 2,
+                        "lastUpdated": "2018-06-04T23:54:04Z"
+                    },
+                    {
+                        "id": 2023,
+                        "area": {
+                            "id": 2011,
+                            "name": "Argentina",
+                            "countryCode": "ARG",
+                            "ensignUrl": null
+                        },
+                        "name": "Primera B Nacional",
+                        "code": null,
+                        "emblemUrl": null,
+                        "plan": "TIER_FOUR",
+                        "currentSeason": {
+                            "id": 716,
+                            "startDate": "2021-03-13",
+                            "endDate": "2021-12-26",
+                            "currentMatchday": 8,
+                            "winner": null
+                        },
+                        "numberOfAvailableSeasons": 5,
+                        "lastUpdated": "2021-04-17T11:21:38Z"
+                    },
+                    ...
+                ]
+            }
+
+## List of teams from single competition [/competitions/{competitionid}/teams]
+
+### Retrieve List of Teams [GET]
+
++ Parameters
+
+    + competitionid: 2014 (number) - An unique identifier of the competition.
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "count": 20,
+                "filters": {},
+                "competition": {
+                    "id": 2014,
+                    "area": {
+                        "id": 2224,
+                        "name": "Spain"
+                    },
+                    "name": "Primera Division",
+                    "code": "PD",
+                    "plan": "TIER_ONE",
+                    "lastUpdated": "2021-04-17T00:00:28Z"
+                },
+                "season": {
+                    "id": 635,
+                    "startDate": "2020-09-13",
+                    "endDate": "2021-05-23",
+                    "currentMatchday": 34,
+                    "winner": null
+                },
+                "teams": [
+                    {
+                        "id": 77,
+                        "area": {
+                            "id": 2224,
+                            "name": "Spain"
+                        },
+                        "name": "Athletic Club",
+                        "shortName": "Athletic",
+                        "tla": "ATH",
+                        "crestUrl": "https://crests.football-data.org/77.svg",
+                        "address": "Ibaigane, Alameda Mazarredo, 23 Bilbao 48009",
+                        "phone": "+34 (944) 240877",
+                        "website": "http://www.athletic-club.eus",
+                        "email": "prensa@athletic-club.net",
+                        "founded": 1898,
+                        "clubColors": "Red / White / Black",
+                        "venue": "San Mamés",
+                        "lastUpdated": "2021-02-08T10:15:41Z"
+                    },
+                    {
+                        "id": 81,
+                        "area": {
+                            "id": 2224,
+                            "name": "Spain"
+                        },
+                        "name": "FC Barcelona",
+                        "shortName": "Barça",
+                        "tla": "FCB",
+                        "crestUrl": "https://crests.football-data.org/81.svg",
+                        "address": "Avenida Arístides Maillol s/n Barcelona 08028",
+                        "phone": "+34 (902) 189900",
+                        "website": "http://www.fcbarcelona.com",
+                        "email": "secretaria@fcbarcelona.com",
+                        "founded": 1899,
+                        "clubColors": "Red / Navy Blue / Orange",
+                        "venue": "Camp Nou",
+                        "lastUpdated": "2021-02-08T10:15:43Z"
+                    },
+                    {
+                        "id": 82,
+                        "area": {
+                            "id": 2224,
+                            "name": "Spain"
+                        },
+                        "name": "Getafe CF",
+                        "shortName": "Getafe",
+                        "tla": "GET",
+                        "crestUrl": "https://crests.football-data.org/82.svg",
+                        "address": "Avenida Teresa de Calcuta, s/n Getafe 28903",
+                        "phone": "+34 (916) 959643",
+                        "website": "http://www.getafecf.com",
+                        "email": "fsantos@getafecf.com",
+                        "founded": 1946,
+                        "clubColors": "Blue / White",
+                        "venue": "Coliseum Alfonso Pérez",
+                        "lastUpdated": "2021-02-08T10:09:25Z"
+                    },
+                    ...
+                ]
+            }
+
+        
+## List of matches from single competition [/competitions/{competitionid}/matches]
+
+### Retrieve List of Matches [GET]
+
++ Parameters
+
+    + competitionid: 2014 (number) - An unique identifier of the competition.
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "count": 380,
+                "filters": {},
+                "competition": {
+                    "id": 2014,
+                    "area": {
+                        "id": 2224,
+                        "name": "Spain"
+                    },
+                    "name": "Primera Division",
+                    "code": "PD",
+                    "plan": "TIER_ONE",
+                    "lastUpdated": "2021-04-17T00:00:28Z"
+                },
+                "matches": [
+                    {
+                        "id": 308333,
+                        "season": {
+                            "id": 635,
+                            "startDate": "2020-09-13",
+                            "endDate": "2021-05-23",
+                            "currentMatchday": 34
+                        },
+                        "utcDate": "2020-09-12T14:00:00Z",
+                        "status": "FINISHED",
+                        "matchday": 1,
+                        "stage": "REGULAR_SEASON",
+                        "group": "Regular Season",
+                        "lastUpdated": "2020-09-13T18:11:24Z",
+                        "odds": {
+                            "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+                        },
+                        "score": {
+                            "winner": "DRAW",
+                            "duration": "REGULAR",
+                            "fullTime": {
+                                "homeTeam": 0,
+                                "awayTeam": 0
+                            },
+                            "halfTime": {
+                                "homeTeam": 0,
+                                "awayTeam": 0
+                            },
+                            "extraTime": {
+                                "homeTeam": null,
+                                "awayTeam": null
+                            },
+                            "penalties": {
+                                "homeTeam": null,
+                                "awayTeam": null
+                            }
+                        },
+                        "homeTeam": {
+                            "id": 278,
+                            "name": "SD Eibar"
+                        },
+                        "awayTeam": {
+                            "id": 558,
+                            "name": "RC Celta de Vigo"
+                        },
+                        "referees": [
+                            {
+                                "id": 57921,
+                                "name": "Valentín Pizarro",
+                                "role": "REF",
+                                "nationality": "Spain"
+                            },
+                            {
+                                "id": 57901,
+                                "name": "José Garrido",
+                                "role": "REF",
+                                "nationality": "Spain"
+                            },
+                            {
+                                "id": 58174,
+                                "name": "Iván Masso Granado",
+                                "role": "REF",
+                                "nationality": "Spain"
+                            },
+                            {
+                                "id": 57021,
+                                "name": "Fernando Bueno Prieto",
+                                "role": "REF",
+                                "nationality": "Spain"
+                            },
+                            {
+                                "id": 32457,
+                                "name": "César Soto",
+                                "role": "REF",
+                                "nationality": "Spain"
+                            }
+                        ]
+                    },
+                    ...
+                ]
+            }
+
+## Current standings from single competition [/competitions/{competitionid}/standings]
+
+### Retrieve current standings/rangking [GET]
+
++ Parameters
+
+    + competitionid: 2014 (number) - An unique identifier of the competition.
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "filters": {},
+                "competition": {
+                    "id": 2014,
+                    "area": {
+                        "id": 2224,
+                        "name": "Spain"
+                    },
+                    "name": "Primera Division",
+                    "code": "PD",
+                    "plan": "TIER_ONE",
+                    "lastUpdated": "2021-04-17T00:00:28Z"
+                },
+                "season": {
+                    "id": 635,
+                    "startDate": "2020-09-13",
+                    "endDate": "2021-05-23",
+                    "currentMatchday": 34,
+                    "winner": null
+                },
+                "standings": [
+                    {
+                        "stage": "REGULAR_SEASON",
+                        "type": "TOTAL",
+                        "group": null,
+                        "table": [
+                            {
+                                "position": 1,
+                                "team": {
+                                    "id": 78,
+                                    "name": "Club Atlético de Madrid",
+                                    "crestUrl": "https://crests.football-data.org/78.svg"
+                                },
+                                "playedGames": 34,
+                                "form": "W,L,W,W,D",
+                                "won": 23,
+                                "draw": 7,
+                                "lost": 4,
+                                "points": 76,
+                                "goalsFor": 61,
+                                "goalsAgainst": 22,
+                                "goalDifference": 39
+                            },
+                            {
+                                "position": 2,
+                                "team": {
+                                    "id": 81,
+                                    "name": "FC Barcelona",
+                                    "crestUrl": "https://crests.football-data.org/81.svg"
+                                },
+                                "playedGames": 34,
+                                "form": "W,L,W,W,L",
+                                "won": 23,
+                                "draw": 5,
+                                "lost": 6,
+                                "points": 74,
+                                "goalsFor": 80,
+                                "goalsAgainst": 33,
+                                "goalDifference": 47
+                            },
+                            ...
+                        ]
+                    }    
+                ]
+            }
+
+
+## Teams [/teams]
+
+### Retrieve all teams [GET]
+
+::: note
+Capable of retrieving teams from england only for now because of API restrictions
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "count": 50,
+                "filters": {
+                    "areas": [
+                        2072
+                    ],
+                    "permission": "TIER_ONE"
+                },
+                "teams": [
+                    {
+                        "id": 57,
+                        "area": {
+                            "id": 2072,
+                            "name": "England"
+                        },
+                        "name": "Arsenal FC",
+                        "shortName": "Arsenal",
+                        "tla": "ARS",
+                        "crestUrl": "https://crests.football-data.org/57.svg",
+                        "address": "75 Drayton Park London N5 1BU",
+                        "phone": "+44 (020) 76195003",
+                        "website": "http://www.arsenal.com",
+                        "email": "info@arsenal.co.uk",
+                        "founded": 1886,
+                        "clubColors": "Red / White",
+                        "venue": "Emirates Stadium",
+                        "lastUpdated": "2020-11-26T02:15:20Z"
+                    },
+                    {
+                        "id": 58,
+                        "area": {
+                            "id": 2072,
+                            "name": "England"
+                        },
+                        "name": "Aston Villa FC",
+                        "shortName": "Aston Villa",
+                        "tla": "AST",
+                        "crestUrl": "https://crests.football-data.org/58.svg",
+                        "address": "Villa Park Birmingham B6 6HE",
+                        "phone": "+44 (0121) 3272299",
+                        "website": "http://www.avfc.co.uk",
+                        "email": null,
+                        "founded": 1872,
+                        "clubColors": "Claret / Sky Blue",
+                        "venue": "Villa Park",
+                        "lastUpdated": "2021-03-03T09:46:16Z"
+                    },
+                    {
+                        "id": 59,
+                        "area": {
+                            "id": 2072,
+                            "name": "England"
+                        },
+                        "name": "Blackburn Rovers FC",
+                        "shortName": "Blackburn",
+                        "tla": "BBR",
+                        "crestUrl": "https://crests.football-data.org/59.svg",
+                        "address": "Ewood Park Blackburn BB2 4JF",
+                        "phone": "+44 (0871) 7021875",
+                        "website": "http://www.rovers.co.uk",
+                        "email": null,
+                        "founded": 1874,
+                        "clubColors": "Blue / White",
+                        "venue": "Ewood Park",
+                        "lastUpdated": "2020-11-26T02:16:34Z"
+                    },
+                    ...
+                         
+                ]
+            }
+
+
+## Details of single team [/teams/{teamid}]
+
+### Retrieve details of single team [GET]
+
++ Parameters
+
+    + teamid: 57 (number) - An unique identifier of single team.
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "id": 57,
+                "area": {
+                    "id": 2072,
+                    "name": "England"
+                },
+                "activeCompetitions": [
+                    {
+                        "id": 2021,
+                        "area": {
+                            "id": 2072,
+                            "name": "England"
+                        },
+                        "name": "Premier League",
+                        "code": "PL",
+                        "plan": "TIER_ONE",
+                        "lastUpdated": "2021-04-17T02:20:14Z"
+                    },
+                    {
+                        "id": 2146,
+                        "area": {
+                            "id": 2077,
+                            "name": "Europe"
+                        },
+                        "name": "UEFA Europa League",
+                        "code": "EL",
+                        "plan": "TIER_TWO",
+                        "lastUpdated": "2021-04-16T04:55:01Z"
+                    },
+                    {
+                        "id": 2055,
+                        "area": {
+                            "id": 2072,
+                            "name": "England"
+                        },
+                        "name": "FA Cup",
+                        "code": "FAC",
+                        "plan": "TIER_TWO",
+                        "lastUpdated": "2021-04-17T00:00:18Z"
+                    }
+                ],
+                "name": "Arsenal FC",
+                "shortName": "Arsenal",
+                "tla": "ARS",
+                "crestUrl": "https://crests.football-data.org/57.svg",
+                "address": "75 Drayton Park London N5 1BU",
+                "phone": "+44 (020) 76195003",
+                "website": "http://www.arsenal.com",
+                "email": "info@arsenal.co.uk",
+                "founded": 1886,
+                "clubColors": "Red / White",
+                "venue": "Emirates Stadium",
+                "squad": [
+                    {
+                        "id": 68,
+                        "name": "Dani Ceballos",
+                        "position": "Midfielder",
+                        "dateOfBirth": "1996-08-07T00:00:00Z",
+                        "countryOfBirth": "Spain",
+                        "nationality": "Spain",
+                        "shirtNumber": null,
+                        "role": "PLAYER"
+                    },
+                    {
+                        "id": 110,
+                        "name": "Thomas Partey",
+                        "position": "Midfielder",
+                        "dateOfBirth": "1993-06-13T00:00:00Z",
+                        "countryOfBirth": "Ghana",
+                        "nationality": "Ghana",
+                        "shirtNumber": null,
+                        "role": "PLAYER"
+                    },
+                    ...
+                         
+                ]
+            }
+
+## Matches of single team [/teams/{teamid}/matches{?type}&{status}]
+
+### Retrieve list of matches [GET]
+
+:::note 
+Only retrieve matches from past 7 days
+
++ Parameters
+
+    + teamid: 57 (number) - An unique identifier of single team.
+    + type: away (string, optional) - Type of the match, either home or away.
+        + Default: undefined
+    + status: FINISHED (string, optional) - Match status: FINISHED or SCHEDULED. 
+        + Default: undefined
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "count": 1,
+                "matches": [
+                    {
+                        "title": "Newcastle United FC VS Arsenal FC",
+                        "id": 304087,
+                        "competition": {
+                            "id": 2021,
+                            "name": "Premier League",
+                            "area": {
+                                "name": "England",
+                                "code": "ENG",
+                                "ensignUrl": "https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
+                            }
+                        },
+                        "season": {
+                            "id": 619,
+                            "startDate": "2020-09-12",
+                            "endDate": "2021-05-23",
+                            "currentMatchday": 34,
+                            "winner": null
+                        },
+                        "utcDate": "2021-05-02T13:00:00Z",
+                        "status": "FINISHED",
+                        "matchday": 34,
+                        "stage": "REGULAR_SEASON",
+                        "group": "Regular Season",
+                        "lastUpdated": "2021-05-02T23:47:02Z",
+                        "odds": {
+                            "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+                        },
+                        "score": {
+                            "winner": "AWAY_TEAM",
+                            "duration": "REGULAR",
+                            "fullTime": {
+                                "homeTeam": 0,
+                                "awayTeam": 2
+                            },
+                            "halfTime": {
+                                "homeTeam": 0,
+                                "awayTeam": 1
+                            },
+                            "extraTime": {
+                                "homeTeam": null,
+                                "awayTeam": null
+                            },
+                            "penalties": {
+                                "homeTeam": null,
+                                "awayTeam": null
+                            }
+                        },
+                        "homeTeam": {
+                            "id": 67,
+                            "name": "Newcastle United FC"
+                        },
+                        "awayTeam": {
+                            "id": 57,
+                            "name": "Arsenal FC"
+                        },
+                        "referees": [
+                            {
+                                "id": 11495,
+                                "name": "Ian Hussin",
+                                "role": "ASSISTANT_REFEREE_N1",
+                                "nationality": "England"
+                            },
+                            {
+                                "id": 11431,
+                                "name": "Daniel Robathan",
+                                "role": "ASSISTANT_REFEREE_N2",
+                                "nationality": "England"
+                            },
+                            {
+                                "id": 11423,
+                                "name": "Andy Madley",
+                                "role": "FOURTH_OFFICIAL",
+                                "nationality": "England"
+                            },
+                            {
+                                "id": 11575,
+                                "name": "Mike Dean",
+                                "role": "REFEREE",
+                                "nationality": "England"
+                            },
+                            {
+                                "id": 11443,
+                                "name": "Chris Kavanagh",
+                                "role": "VIDEO_ASSISANT_REFEREE_N1",
+                                "nationality": "England"
+                            },
+                            {
+                                "id": 11444,
+                                "name": "Matthew Wilkes",
+                                "role": "VIDEO_ASSISANT_REFEREE_N2",
+                                "nationality": null
+                            }
+                        ]
+                    }
+                ]
+            }
+
+
+## Matches [/matches{?country}&{status}]
+
+### Retrieve list of matches [GET]
+
+:::note 
+Only retrieve matches from past 7 days
+
++ Parameters
+
+    + country: Spain (string, optional) - Country of the match.
+        + Default: undefined
+    + status: FINISHED (string, optional) - Match status: FINISHED or SCHEDULED. 
+        + Default: undefined
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "count": 12,
+                "matches": [
+                    {
+                        "title": "SD Eibar VS Real Sociedad de Fútbol",
+                        "id": 308644,
+                        "competition": {
+                            "id": 2014,
+                            "name": "Primera Division",
+                            "area": {
+                                "name": "Spain",
+                                "code": "ESP",
+                                "ensignUrl": "https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"
+                            }
+                        },
+                        "season": {
+                            "id": 635,
+                            "startDate": "2020-09-13",
+                            "endDate": "2021-05-23",
+                            "currentMatchday": 34,
+                            "winner": null
+                        },
+                        "utcDate": "2021-04-26T19:00:00Z",
+                        "status": "FINISHED",
+                        "matchday": 32,
+                        "stage": "REGULAR_SEASON",
+                        "group": "Regular Season",
+                        "lastUpdated": "2021-05-02T08:20:22Z",
+                        "odds": {
+                            "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+                        },
+                        "score": {
+                            "winner": "AWAY_TEAM",
+                            "duration": "REGULAR",
+                            "fullTime": {
+                                "homeTeam": 0,
+                                "awayTeam": 1
+                            },
+                            "halfTime": {
+                                "homeTeam": 0,
+                                "awayTeam": 1
+                            },
+                            "extraTime": {
+                                "homeTeam": null,
+                                "awayTeam": null
+                            },
+                            "penalties": {
+                                "homeTeam": null,
+                                "awayTeam": null
+                            }
+                        },
+                        "homeTeam": {
+                            "id": 278,
+                            "name": "SD Eibar"
+                        },
+                        "awayTeam": {
+                            "id": 92,
+                            "name": "Real Sociedad de Fútbol"
+                        },
+                        "referees": [
+                            {
+                                "id": 57917,
+                                "name": "Jorge Figueroa",
+                                "role": "REFEREE",
+                                "nationality": "Spain"
+                            },
+                            {
+                                "id": 57915,
+                                "name": "Antonio Martínez",
+                                "role": "ASSISTANT_REFEREE_N1",
+                                "nationality": "Spain"
+                            },
+                            {
+                                "id": 32516,
+                                "name": "Álvaro Carreño",
+                                "role": "ASSISTANT_REFEREE_N2",
+                                "nationality": "Spain"
+                            },
+                            {
+                                "id": 32621,
+                                "name": "Adrián Cordero",
+                                "role": "VIDEO_ASSISANT_REFEREE_N1",
+                                "nationality": "Spain"
+                            },
+                            {
+                                "id": 32624,
+                                "name": "Antonio Cerezo",
+                                "role": "VIDEO_ASSISANT_REFEREE_N2",
+                                "nationality": "Spain"
+                            },
+                            {
+                                "id": 97220,
+                                "name": "Pol Gòdia Solé",
+                                "role": "FOURTH_OFFICIAL",
+                                "nationality": "Spain"
+                            }
+                        ]
+                    },
+                    ...
+                ]
+            }
+
+
+## Details of single match [/matches/{matchid}]
+
+### Details of single match [GET]
+
+:::note 
+Only retrieve matches from past 7 days
+
++ Parameters
+
+    + matchid: 308645 (string) - An unique identifier of single team.
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "title": "FC Barcelona VS Granada CF",
+                "head2head": {
+                    "numberOfMatches": 10,
+                    "totalGoals": 35,
+                    "homeTeam": {
+                        "id": 81,
+                        "name": "FC Barcelona",
+                        "wins": 8,
+                        "draws": 0,
+                        "losses": 2
+                    },
+                    "awayTeam": {
+                        "id": 83,
+                        "name": "Granada CF",
+                        "wins": 2,
+                        "draws": 0,
+                        "losses": 8
+                    }
+                },
+                "match": {
+                    "id": 308645,
+                    "competition": {
+                        "id": 2014,
+                        "name": "Primera Division",
+                        "area": {
+                            "name": "Spain",
+                            "code": "ESP",
+                            "ensignUrl": "https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"
+                        }
+                    },
+                    "season": {
+                        "id": 635,
+                        "startDate": "2020-09-13",
+                        "endDate": "2021-05-23",
+                        "currentMatchday": 34,
+                        "winner": null
+                    },
+                    "utcDate": "2021-04-29T17:00:00Z",
+                    "status": "FINISHED",
+                    "venue": "Camp Nou",
+                    "matchday": 33,
+                    "stage": "REGULAR_SEASON",
+                    "group": "Regular Season",
+                    "lastUpdated": "2021-05-02T08:20:22Z",
+                    "odds": {
+                        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+                    },
+                    "score": {
+                        "winner": "AWAY_TEAM",
+                        "duration": "REGULAR",
+                        "fullTime": {
+                            "homeTeam": 1,
+                            "awayTeam": 2
+                        },
+                        "halfTime": {
+                            "homeTeam": 1,
+                            "awayTeam": 0
+                        },
+                        "extraTime": {
+                            "homeTeam": null,
+                            "awayTeam": null
+                        },
+                        "penalties": {
+                            "homeTeam": null,
+                            "awayTeam": null
+                        }
+                    },
+                    "homeTeam": {
+                        "id": 81,
+                        "name": "FC Barcelona"
+                    },
+                    "awayTeam": {
+                        "id": 83,
+                        "name": "Granada CF"
+                    },
+                    "referees": [
+                        {
+                            "id": 32089,
+                            "name": "Alfredo Rodríguez",
+                            "role": "ASSISTANT_REFEREE_N1",
+                            "nationality": "Spain"
+                        },
+                        {
+                            "id": 31989,
+                            "name": "Israel Bárcena",
+                            "role": "ASSISTANT_REFEREE_N2",
+                            "nationality": "Spain"
+                        },
+                        {
+                            "id": 56970,
+                            "name": "Luis Collado",
+                            "role": "FOURTH_OFFICIAL",
+                            "nationality": "Spain"
+                        },
+                        {
+                            "id": 56978,
+                            "name": "Pablo González",
+                            "role": "REFEREE",
+                            "nationality": "Spain"
+                        },
+                        {
+                            "id": 80747,
+                            "name": "Javier Alberola Rojas",
+                            "role": "VIDEO_ASSISANT_REFEREE_N1",
+                            "nationality": null
+                        },
+                        {
+                            "id": 56969,
+                            "name": "Marcos Cerdán Aguilar",
+                            "role": "VIDEO_ASSISANT_REFEREE_N2",
+                            "nationality": "Spain"
+                        }
+                    ]
+                }
+            }
