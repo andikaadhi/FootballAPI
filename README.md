@@ -16,12 +16,12 @@ Football API merupakan API yang memberikan data seputar sepakbola, seperti kompe
 
 ## API Docs (Blueprint)
 Berada pada /documentation/ApiDocs.apib
-> [Link to file](https://github.com/andikaadhi/FootballAPI/blob/master/documentation/ApiDocs.apib)
-> [Link to Apiary Docs](https://footballrestapi.docs.apiary.io)
++ [Link to file](https://github.com/andikaadhi/FootballAPI/blob/master/documentation/ApiDocs.apib)
++ [Link to Apiary Docs](https://footballrestapi.docs.apiary.io)
 
 ## Architecture and Sequence Diagram 
 Berada pada /documentation
-> [Linkt to folder](https://github.com/andikaadhi/FootballAPI/blob/master/documentation)
++ [Linkt to folder](https://github.com/andikaadhi/FootballAPI/blob/master/documentation)
 
 
 ## Cara menjalankan
