@@ -1,4 +1,4 @@
-# FootballAPI
+# FootballAPI 
 
 Football API merupakan API yang memberikan data seputar sepakbola, seperti kompetisi, pertandingan, tim sepakbola, dll. 
 ### Source Data: football-data.org
@@ -30,3 +30,13 @@ Berada pada /documentation
    - opsi 2: 'node server.js'
 + akses API pada port 8000
 + jika ingin mengganti port, silahkan mengganti di .env
+
+## Dependancies
++ axios
++ dotenv
++ express
++ moment
++ nodemon
++ winston
+
+### Terima kasih
