@@ -1,6 +1,9 @@
 const router = require("express").Router();
 const services = require("../services");
 
+/**
+ * @description get all competitions
+ */
 router.get("/competitions", async (req, res, next) => {
   try {
     const { country } = req.query;
@@ -12,6 +15,10 @@ router.get("/competitions", async (req, res, next) => {
     next(error);
   }
 });
+
+/**
+ * @description get all teams from single competition
+ */
 router.get("/competitions/:competitionid/teams", async (req, res, next) => {
   try {
     const { competitionid } = req.params;
@@ -24,6 +31,10 @@ router.get("/competitions/:competitionid/teams", async (req, res, next) => {
     next(error);
   }
 });
+
+/**
+ * @description get all matches from single competition
+ */
 router.get("/competitions/:competitionid/matches", async (req, res, next) => {
   try {
     const { competitionid } = req.params;
@@ -36,6 +47,10 @@ router.get("/competitions/:competitionid/matches", async (req, res, next) => {
     next(error);
   }
 });
+
+/**
+ * @description get current standings from single competition
+ */
 router.get("/competitions/:competitionid/standings", async (req, res, next) => {
   try {
     const { competitionid } = req.params;
@@ -48,6 +63,10 @@ router.get("/competitions/:competitionid/standings", async (req, res, next) => {
     next(error);
   }
 });
+
+/**
+ * @description get all teams
+ */
 router.get("/teams", async (req, res, next) => {
   try {
     const response = await services.getTeams();
@@ -56,6 +75,10 @@ router.get("/teams", async (req, res, next) => {
     next(error);
   }
 });
+
+/**
+ * get single team
+ */
 router.get("/teams/:teamid", async (req, res, next) => {
   try {
     const response = await services.getTeamDetails(req.params.teamid);
@@ -64,6 +87,10 @@ router.get("/teams/:teamid", async (req, res, next) => {
     next(error);
   }
 });
+
+/**
+ * get all matches from single team
+ */
 router.get("/teams/:teamid/matches", async (req, res, next) => {
   try {
     const response = await services.getTeamMatches(
@@ -75,6 +102,10 @@ router.get("/teams/:teamid/matches", async (req, res, next) => {
     next(error);
   }
 });
+
+/**
+ * @description get all matches
+ */
 router.get("/matches", async (req, res, next) => {
   try {
     const response = await services.getMatches(req.query);
@@ -83,6 +114,10 @@ router.get("/matches", async (req, res, next) => {
     next(error);
   }
 });
+
+/**
+ * @description get single match
+ */
 router.get("/matches/:matchid", async (req, res, next) => {
   try {
     const response = await services.getMatchDetails(req.params.matchid);
